@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sake Bar 成（NARU）| 茅ヶ崎の日本酒・おばんざい居酒屋</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Antique&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ==================== NAV ==================== -->
+  <nav id="nav">
+    <div class="nav-logo">
+      成
+      <span>SAKE BAR NARU</span>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#concept">コンセプト</a></li>
+      <li><a href="#features">こだわり</a></li>
+      <!-- #menu リンクは main.js が挿入 -->
+      <li><a href="#info">店舗情報</a></li>
+      <li><a href="#reservation" class="nav-reserve">ご予約</a></li>
+    </ul>
+
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-deco" aria-hidden="true">成</div>
+
+    <div class="hero-content">
+      <span class="hero-label">SAKE BAR · NARU · CHIGASAKI</span>
+      <span class="hero-kanji">成</span>
+      <span class="hero-name">SAKE BAR NARU</span>
+      <p class="hero-copy">
+        心がほどける、<br>
+        "おかえり"のある居酒屋。
+      </p>
+      <p class="hero-sub">茅ヶ崎駅 徒歩1分 ｜ 深夜1時まで営業</p>
+      <a href="#reservation" class="hero-cta">
+        ご予約はこちら
+        <span class="hero-cta-arrow"></span>
+      </a>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ==================== CONCEPT ==================== -->
+  <section id="concept">
+    <div class="concept-inner">
+      <div class="concept-text reveal">
+        <span class="section-label">— CONCEPT —</span>
+        <h2 class="section-title">ただいま、と言いたくなる<span>場所</span>へ</h2>
+        <div class="divider"></div>
+        <p class="concept-body">
+          茅ヶ崎の夜に、ふらりと立ち寄れる「おかえり」の居場所。<br><br>
+          小田原早川漁港から届く旬の鮮魚と、毎日丁寧に仕込む手作りおばんざい。
+          全国から厳選した日本酒の数々が、あなたの一日の終わりを静かに彩ります。<br><br>
+          騒がしくなく、でもひとりじゃない。そんな心地よい距離感を大切にした空間で、
+          自然体のままお過ごしください。
+        </p>
+        <div class="concept-tags">
+          <span class="concept-tag">鮮魚直送</span>
+          <span class="concept-tag">手作りおばんざい</span>
+          <span class="concept-tag">厳選日本酒</span>
+          <span class="concept-tag">深夜1時まで</span>
+          <span class="concept-tag">茅ヶ崎駅1分</span>
+        </div>
+      </div>
+
+      <div class="concept-image-wrap reveal">
+        <!-- main.js が .concept-image-mock を img タグに差し替え -->
+        <div class="concept-image-mock" data-section="concept-image"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURES ==================== -->
+  <section id="features">
+    <div class="features-inner">
+      <div class="features-header reveal">
+        <span class="section-label">— OUR PRIDE —</span>
+        <h2 class="section-title">三つの<span>こだわり</span></h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <span class="feature-icon">魚</span>
+          <h3 class="feature-title">小田原早川漁港の鮮魚</h3>
+          <p class="feature-body">
+            毎日仕入れる直送の鮮魚。<br>
+            その日ならではの旬の味わいを<br>
+            刺身・焼き・煮付けで。
+          </p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-icon">菜</span>
+          <h3 class="feature-title">手作りおばんざい</h3>
+          <p class="feature-body">
+            季節の食材を丁寧に仕込んだ<br>
+            おばんざいは、毎日変わる<br>
+            母の味のような一皿。
+          </p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-icon">酒</span>
+          <h3 class="feature-title">厳選日本酒</h3>
+          <p class="feature-body">
+            全国の蔵元から選び抜いた<br>
+            季節の日本酒を常時ラインナップ。<br>
+            お料理との相性でご提案します。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- #menu セクションは main.js が #features の直後に挿入 -->
+
+  <!-- ==================== INFO ==================== -->
+  <section id="info">
+    <div class="info-inner">
+      <div class="reveal">
+        <span class="section-label">— ACCESS —</span>
+        <h2 class="section-title">店舗<span>情報</span></h2>
+        <div class="divider"></div>
+
+        <table class="info-table">
+          <tr>
+            <td>店名</td>
+            <td>Sake Bar 成（NARU）</td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td>〒253-0052<br>神奈川県茅ヶ崎市幸町２−１０<br>ジョイ茅ヶ崎パート1 103</td>
+          </tr>
+          <tr>
+            <td>アクセス</td>
+            <td>茅ヶ崎駅 徒歩1分</td>
+          </tr>
+          <tr>
+            <td>営業時間</td>
+            <td>16:00 〜 翌1:00</td>
+          </tr>
+          <tr>
+            <td>営業日</td>
+            <td>月・水・木・金・土・日</td>
+          </tr>
+          <tr>
+            <td>定休日</td>
+            <td>火曜日</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="reveal">
+        <div class="info-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.0!2d139.4037!3d35.3344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6019b26ba39abb83%3A0x5fa96fb5d5bb7e00!2z44CSMjUzLTAwNTIg56We5aWI5bed55yM6Iy26aTk5biC5aCx55S677yS4oiS77yR77yQ!5e0!3m2!1sja!2sjp!4v1700000000000"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Sake Bar 成 地図">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== RESERVATION ==================== -->
+  <section id="reservation">
+    <div class="reservation-inner section-wrap reveal">
+      <span class="section-label">— RESERVATION —</span>
+      <h2 class="section-title">ご<span>予約</span></h2>
+      <div class="divider" style="margin: 1.5rem auto;"></div>
+      <p class="reservation-copy">
+        当日のご来店も歓迎しておりますが、<br>
+        お席のご確保にはご予約がおすすめです。<br>
+        ホットペッパーからお気軽にどうぞ。
+      </p>
+      <a href="https://www.hotpepper.jp/strJ004444240/" target="_blank" rel="noopener" class="btn-reserve">
+        ホットペッパーで予約する
+      </a>
+    </div>
+  </section>
+
+  <!-- #gallery セクションは main.js がフッター直前に挿入 -->
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer id="footer">
+    <div class="footer-logo">成</div>
+    <p class="footer-tagline">SAKE BAR NARU · CHIGASAKI</p>
+    <div class="footer-sns">
+      <a href="https://www.instagram.com/naru__0714/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.hotpepper.jp/strJ004444240/" target="_blank" rel="noopener">ホットペッパー</a>
+    </div>
+    <p class="footer-copy">© 2025 Sake Bar 成 NARU. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript（DOM 操作・インタラクション） -->
+  <script src="main.js"></script>
+
+</body>
+</html>
