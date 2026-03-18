@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>お品書き | Sake Bar 成（NARU）</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Antique&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Menu Page Specific Styles */
+    .menu-page-header {
+      padding: 12rem 0 6rem;
+      background: var(--ink);
+      text-align: center;
+      position: relative;
+    }
+    .menu-page-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--sake), transparent);
+    }
+    .menu-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+    }
+    .menu-category {
+      margin-bottom: 6rem;
+    }
+    .category-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.8rem;
+      color: var(--sake);
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .category-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(200,169,110,0.2);
+    }
+    .menu-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 4rem;
+      row-gap: 2rem;
+    }
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px dotted rgba(200,169,110,0.15);
+    }
+    .item-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      color: var(--rice);
+      line-height: 1.6;
+    }
+    .item-price {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.1rem;
+      color: var(--sake);
+      font-weight: 600;
+      white-space: nowrap;
+      margin-left: 1rem;
+    }
+    .item-note {
+      font-size: 0.75rem;
+      color: var(--stone);
+      margin-top: 0.3rem;
+    }
+    .full-width {
+      grid-column: 1 / -1;
+    }
+    .menu-footer-note {
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--stone);
+      letter-spacing: 0.05em;
+    }
+    .btn-back-home {
+      display: inline-block;
+      margin-top: 4rem;
+      padding: 0.9rem 2.5rem;
+      border: 1px solid var(--sake);
+      color: var(--sake);
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      transition: 0.3s;
+    }
+    .btn-back-home:hover {
+      background: var(--sake);
+      color: var(--ink);
+    }
+
+    @media (max-width: 768px) {
+      .menu-list {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .category-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==================== NAV ==================== -->
+  <nav id="nav">
+    <div class="nav-logo">
+      <a href="index.html" style="color: inherit; text-decoration: none;">成
+      <span>SAKE BAR NARU</span></a>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#concept">コンセプト</a></li>
+      <li><a href="index.html#features">こだわり</a></li>
+      <li><a href="index.html#menu" class="active">メニュー</a></li>
+      <li><a href="index.html#info">店舗情報</a></li>
+      <li><a href="https://r.gnavi.co.jp/cmftdra00000/" class="nav-reserve">ご予約</a></li>
+    </ul>
+
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="menu-page-header">
+    <div class="reveal">
+      <span class="section-label">— OKONOMI —</span>
+      <h1 class="section-title" style="font-size: 2.8rem;">お品<span>書き</span></h1>
+      <div class="divider" style="margin: 2rem auto;"></div>
+    </div>
+  </header>
+
+  <!-- ==================== MENU LIST ==================== -->
+  <main class="menu-container">
+    
+    <!-- 看板メニュー・おすすめ -->
+    <section class="menu-category reveal">
+      <h2 class="category-title">看板メニュー・おすすめ</h2>
+      <div class="menu-list">
+        <div class="menu-item full-width">
+          <span class="item-name">oh!!刺身盛り合わせ</span>
+          <span class="item-price">別紙参照</span>
+        </div>
+        <div class="menu-item">
+          <span class="item-name">とろすじ肉じゃが</span>
+          <span class="item-price">880円</span>
+        </div>
+        <div class="menu-item">
+          <span class="item-name">炙りしめさば</span>
+          <span class="item-price">980円</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- おばんざい盛り合わせ -->
+    <section class="menu-category reveal">
+      <h2 class="category-title">おばんざい盛り合わせ</h2>
+      <div class="menu-list">
+        <div class="menu-item">
+          <span class="item-name">3種（1人前）</span>
+          <span class="item-price">780円</span>
+        </div>
+        <div class="menu-item">
+          <span class="item-name">5種（1人前）</span>
+          <span class="item-price">1,280円</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 一品料理・おつまみ -->
+    <section class="menu-category reveal">
+      <h2 class="category-title">一品料理・おつまみ</h2>
+      <div class="menu-list">
+        <div class="menu-item"><span class="item-name">ネギトロアボカドユッケ</span><span class="item-price">880円</span></div>
+        <div class="menu-item"><span class="item-name">海老のチリマヨ</span><span class="item-price">880円</span></div>
+        <div class="menu-item">
+          <div>
+            <span class="item-name">今日のアヒージョ</span>
+            <p class="item-note">バゲット1枚 50円</p>
+          </div>
+          <span class="item-price">1,080円</span>
+        </div>
+        <div class="menu-item"><span class="item-name">カキフライ（自家製タルタル）</span><span class="item-price">200円</span></div>
+        <div class="menu-item"><span class="item-name">エシャレット塩昆布和え</span><span class="item-price">580円</span></div>
+        <div class="menu-item"><span class="item-name">真タラ塩麹焼き（いくらおろし旨味爆弾）</span><span class="item-price">880円</span></div>
+        <div class="menu-item"><span class="item-name">エイヒレ</span><span class="item-price">500円</span></div>
+        <div class="menu-item"><span class="item-name">パクチーサラダ</span><span class="item-price">680円</span></div>
+        <div class="menu-item"><span class="item-name">蛸のにしきぎ</span><span class="item-price">730円</span></div>
+        <div class="menu-item"><span class="item-name">春菊とネギトロたくあん</span><span class="item-price">880円</span></div>
+        <div class="menu-item"><span class="item-name">豚のあたりめ</span><span class="item-price">500円</span></div>
+        <div class="menu-item"><span class="item-name">リッチなちーたら</span><span class="item-price">500円</span></div>
+        <div class="menu-item"><span class="item-name">サツマイモチーズ</span><span class="item-price">750円</span></div>
+        <div class="menu-item"><span class="item-name">レンコンカルパッチョ</span><span class="item-price">780円</span></div>
+        <div class="menu-item"><span class="item-name">カニクリームコロッケ</span><span class="item-price">400円</span></div>
+        <div class="menu-item"><span class="item-name">黒豆黒糖マスカルポーネ</span><span class="item-price">680円</span></div>
+        <div class="menu-item"><span class="item-name">ムール貝と菜花酒バター醤油蒸し</span><span class="item-price">900円</span></div>
+        <div class="menu-item"><span class="item-name">ポテトフライ（塩 or チリソース）</span><span class="item-price">680円</span></div>
+        <div class="menu-item"><span class="item-name">つけもん</span><span class="item-price">500円</span></div>
+        <div class="menu-item"><span class="item-name">チーズフライ</span><span class="item-price">500円</span></div>
+        <div class="menu-item"><span class="item-name">oh!!刺身マリネ和え</span><span class="item-price">780円</span></div>
+        <div class="menu-item"><span class="item-name">海鮮爆弾</span><span class="item-price">780円</span></div>
+        <div class="menu-item"><span class="item-name">あんぽ柿とクリームチーズの春巻（1本）</span><span class="item-price">280円</span></div>
+        <div class="menu-item"><span class="item-name">旬菜のグラタン</span><span class="item-price">880円</span></div>
+        <div class="menu-item"><span class="item-name">おさかな天盛り</span><span class="item-price">1,080円</span></div>
+        <div class="menu-item"><span class="item-name">かまぼこ練り梅</span><span class="item-price">500円</span></div>
+        <div class="menu-item"><span class="item-name">卵焼きいくら乗せ</span><span class="item-price">780円</span></div>
+        <div class="menu-item"><span class="item-name">きゅうり梅和え</span><span class="item-price">500円</span></div>
+        <div class="menu-item"><span class="item-name">鉄板チーズハンバーグ</span><span class="item-price">880円</span></div>
+        <div class="menu-item"><span class="item-name">ハムカツエッグ</span><span class="item-price">680円</span></div>
+      </div>
+    </section>
+
+    <!-- 〆・ごはん・デザート -->
+    <section class="menu-category reveal">
+      <h2 class="category-title">〆・ごはん・デザート</h2>
+      <div class="menu-list">
+        <div class="menu-item"><span class="item-name">チラカリ寿司</span><span class="item-price">1,280円</span></div>
+        <div class="menu-item"><span class="item-name">酒場のナポリタン</span><span class="item-price">980円</span></div>
+        <div class="menu-item"><span class="item-name">カチョエペペ</span><span class="item-price">990円</span></div>
+        <div class="menu-item"><span class="item-name">ピリ辛ソース焼きそば</span><span class="item-price">780円</span></div>
+        <div class="menu-item"><span class="item-name">海鮮ドーン！</span><span class="item-price">1,100円</span></div>
+        <div class="menu-item"><span class="item-name">おまかせまかない飯</span><span class="item-price">ASK</span></div>
+        <div class="menu-item"><span class="item-name">フォンダンショコラ</span><span class="item-price">680円</span></div>
+      </div>
+    </section>
+
+    <div class="menu-footer-note reveal">
+      <p>※メニューに無いもののアレコレ食べたい要望も、できる限り対応させていただきます。<br>お気軽にお声掛けください。</p>
+      <a href="index.html" class="btn-back-home">トップページへ戻る</a>
+    </div>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer id="footer">
+    <div class="footer-logo">成</div>
+    <p class="footer-tagline">SAKE BAR NARU · CHIGASAKI</p>
+    <div class="footer-sns">
+      <a href="https://www.instagram.com/naru__0714/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://r.gnavi.co.jp/cmftdra00000/" target="_blank" rel="noopener">ぐるなび</a>
+    </div>
+    <p class="footer-copy">© 2025 Sake Bar 成 NARU. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript（DOM 操作・インタラクション） -->
+  <script src="main.js"></script>
+
+</body>
+</html>

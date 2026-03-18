@@ -145,65 +145,7 @@
   .nav-reserve:hover { background: var(--sake-light) !important; }
   .nav-reserve::after { display: none !important; }
   
-  /* Hamburger */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 40px; height: 40px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    gap: 5px;
-    padding: 0;
-  }
-  .hamburger span {
-    display: block;
-    width: 24px; height: 1.5px;
-    background: var(--sake);
-    transition: transform 0.35s, opacity 0.35s;
-    transform-origin: center;
-  }
-  .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-  .hamburger.open span:nth-child(2) { opacity: 0; }
-  .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-  
-  @media (max-width: 768px) {
-    .hamburger { display: flex; }
-  
-    .nav-links {
-      position: fixed;
-      top: 64px; left: 0; right: 0;
-      background: rgba(26,20,16,0.97);
-      backdrop-filter: blur(16px);
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 2rem;
-      gap: 0;
-      border-top: 1px solid rgba(200,169,110,0.15);
-      transform: translateY(-110%);
-      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
-      pointer-events: none;
-    }
-    .nav-links.open {
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-    .nav-links li {
-      width: 100%;
-      border-bottom: 1px solid rgba(200,169,110,0.1);
-    }
-    .nav-links a {
-      display: block;
-      padding: 1rem 0;
-      font-size: 1rem;
-    }
-    .nav-reserve {
-      margin-top: 1rem;
-      display: inline-block;
-    }
-  }
+
   
   /* =============================================
      HERO
@@ -222,9 +164,8 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 60% 70% at 70% 50%, rgba(200,169,110,0.07) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 50% at 20% 80%, rgba(201,76,26,0.06) 0%, transparent 50%),
-      linear-gradient(160deg, #0d0b09 0%, #1a1410 40%, #2a1f14 100%);
+      linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url('img/store.png') no-repeat center center / cover;
   }
   
   .hero-bg::after {
@@ -562,142 +503,7 @@
     .features-grid { grid-template-columns: 1fr; }
   }
   
-  /* =============================================
-     MENU SECTION（JS で DOM 挿入）
-  ============================================= */
-  #menu {
-    padding: 8rem 0;
-    background: var(--ink);
-    position: relative;
-    overflow: hidden;
-  }
-  #menu::before {
-    content: 'MENU';
-    position: absolute;
-    bottom: 2rem; left: -1rem;
-    font-family: 'Zen Antique', serif;
-    font-size: 8rem;
-    color: rgba(200,169,110,0.03);
-    letter-spacing: 0.2em;
-    pointer-events: none;
-  }
-  #menu::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--sake), transparent);
-  }
-  .menu-header {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
-  .menu-header .divider { margin: 1.5rem auto; }
-  .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5px;
-  }
-  .menu-card {
-    background: var(--warm-dark);
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
-  }
-  .menu-card:hover { transform: translateY(-4px); }
-  .menu-card-img {
-    aspect-ratio: 4/3;
-    background:
-      linear-gradient(180deg, transparent 40%, rgba(26,20,16,0.85) 100%),
-      linear-gradient(135deg, rgba(200,169,110,0.18) 0%, rgba(42,31,20,0.8) 100%);
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  .menu-card-img .img-placeholder {
-    font-family: 'Zen Antique', serif;
-    font-size: 4rem;
-    color: rgba(200,169,110,0.3);
-    position: absolute;
-  }
-  .menu-card-img img {
-    position: absolute;
-    inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-  }
-  .menu-card:hover .menu-card-img img { transform: scale(1.05); }
-  .menu-card-body {
-    padding: 1.5rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  .menu-card-season {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    color: var(--sake);
-    margin-bottom: 0.5rem;
-  }
-  .menu-card-title {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--rice);
-    margin-bottom: 0.6rem;
-    line-height: 1.5;
-  }
-  .menu-card-desc {
-    font-size: 0.78rem;
-    color: var(--stone);
-    line-height: 1.9;
-    flex: 1;
-  }
-  .menu-card-price {
-    margin-top: 1.2rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(200,169,110,0.15);
-    display: flex;
-    align-items: baseline;
-    gap: 0.3rem;
-  }
-  .menu-card-price .price-num {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 1.4rem;
-    color: var(--sake);
-    font-weight: 700;
-  }
-  .menu-card-price .price-tax {
-    font-size: 0.65rem;
-    color: var(--stone);
-    letter-spacing: 0.1em;
-  }
-  .menu-more-wrap {
-    text-align: center;
-    margin-top: 3rem;
-  }
-  .btn-menu-more {
-    display: inline-block;
-    padding: 0.8rem 2.5rem;
-    border: 1px solid rgba(200,169,110,0.5);
-    color: var(--sake);
-    font-family: 'Noto Serif JP', serif;
-    font-size: 0.82rem;
-    letter-spacing: 0.2em;
-    transition: background 0.3s, color 0.3s;
-  }
-  .btn-menu-more:hover {
-    background: var(--sake);
-    color: var(--ink);
-  }
-  @media (max-width: 900px) {
-    .menu-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
-  }
+
   
   /* =============================================
      INFO
@@ -824,87 +630,7 @@
     transform: translateY(-2px);
   }
   
-  /* =============================================
-     GALLERY SECTION（JS で DOM 挿入）
-  ============================================= */
-  #gallery {
-    padding: 8rem 0;
-    background: var(--warm-dark);
-    position: relative;
-    overflow: hidden;
-  }
-  #gallery::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--sake), transparent);
-  }
-  .gallery-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  .gallery-header .divider { margin: 1.5rem auto; }
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-  }
-  .gallery-item {
-    aspect-ratio: 1;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    background: var(--ink);
-  }
-  .gallery-item-bg {
-    width: 100%; height: 100%;
-    transition: transform 0.5s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .gallery-item:hover .gallery-item-bg { transform: scale(1.06); }
-  .gallery-item-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(26,20,16,0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .gallery-item:hover .gallery-item-overlay { opacity: 1; }
-  .gallery-item-overlay span {
-    font-family: 'Zen Antique', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    color: var(--sake);
-    border: 1px solid var(--sake);
-    padding: 0.4rem 0.8rem;
-  }
-  .gallery-cta-wrap {
-    text-align: center;
-    margin-top: 3rem;
-  }
-  .btn-instagram {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 0.9rem 2.2rem;
-    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
-    color: #fff;
-    font-family: 'Noto Serif JP', serif;
-    font-size: 0.82rem;
-    letter-spacing: 0.1em;
-    transition: opacity 0.3s, transform 0.3s;
-  }
-  .btn-instagram:hover { opacity: 0.88; transform: translateY(-2px); }
-  .btn-instagram svg { width: 18px; height: 18px; fill: #fff; }
-  @media (max-width: 600px) {
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-  }
+
   
   /* =============================================
      FOOTER
