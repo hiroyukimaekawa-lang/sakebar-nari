@@ -679,3 +679,32 @@
     color: rgba(138,130,120,0.5);
     letter-spacing: 0.15em;
   }
+  
+  /* =============================================
+     ADDITIONAL COMPONENTS
+  ============================================= */
+  .menu-note {
+    text-align: center;
+    margin: 3rem auto;
+    padding: 0 2rem;
+    max-width: 800px;
+  }
+  
+  .menu-note p {
+    font-size: 0.9rem;
+    color: var(--stone);
+    line-height: 1.8;
+  }
+  
+  .sp-only {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .sp-only {
+      display: block;
+    }
+    .menu-note {
+      margin: 2rem auto;
+    }
+  }

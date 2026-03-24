@@ -1,9 +1,9 @@
 (function () {
 
-    /* ============================================================
-       0. 追加スタイルの動的インジェクション
-    ============================================================ */
-    const additionalStyles = `
+  /* ============================================================
+     0. 追加スタイルの動的インジェクション
+  ============================================================ */
+  const additionalStyles = `
       /* Hamburger */
       .hamburger {
         display: none;
@@ -143,34 +143,34 @@
       .btn-instagram svg { width: 18px; height: 18px; fill: #fff; }
       @media (max-width: 600px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
     `;
-    const styleTag = document.createElement('style');
-    styleTag.textContent = additionalStyles;
-    document.head.appendChild(styleTag);
+  const styleTag = document.createElement('style');
+  styleTag.textContent = additionalStyles;
+  document.head.appendChild(styleTag);
 
 
-    /* ============================================================
-       1. CONCEPT IMAGE PLACEHOLDER → IMG タグに差し替え
-    ============================================================ */
-    const conceptMock = document.querySelector('.concept-image-mock');
-    if (conceptMock) {
-      const img = document.createElement('img');
-      img.src = 'img/store-in4.png';
-      img.alt = 'Sake Bar 成 店内';
-      img.setAttribute('data-section', 'concept-image');
-      img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
-      conceptMock.replaceWith(img);
-    }
-  
-  
-    /* ============================================================
-       2. メニューセクションを #features の直後に挿入 (Index.html のみ)
-    ============================================================ */
-    const featuresSection = document.getElementById('features');
-    if (featuresSection && !window.location.pathname.includes('menu.html')) {
-        const menuSection = document.createElement('section');
-        menuSection.id = 'menu';
-      
-        menuSection.innerHTML = `
+  /* ============================================================
+     1. CONCEPT IMAGE PLACEHOLDER → IMG タグに差し替え
+  ============================================================ */
+  const conceptMock = document.querySelector('.concept-image-mock');
+  if (conceptMock) {
+    const img = document.createElement('img');
+    img.src = 'img/store-in4.png';
+    img.alt = 'Sake Bar 成 店内';
+    img.setAttribute('data-section', 'concept-image');
+    img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
+    conceptMock.replaceWith(img);
+  }
+
+
+  /* ============================================================
+     2. メニューセクションを #features の直後に挿入 (Index.html のみ)
+  ============================================================ */
+  const featuresSection = document.getElementById('features');
+  if (featuresSection && !window.location.pathname.includes('menu.html')) {
+    const menuSection = document.createElement('section');
+    menuSection.id = 'menu';
+
+    menuSection.innerHTML = `
           <div class="section-wrap">
             <div class="menu-header reveal">
               <span class="section-label">— OKONOMI —</span>
@@ -199,7 +199,7 @@
       
               <div class="menu-card reveal">
                 <div class="menu-card-img">
-                  <img src="img/food.jpg" alt="手作りおばんざい盛合せ" />
+                  <img src="img/obanzai2.jpg" alt="手作りおばんざい盛合せ" />
                 </div>
                 <div class="menu-card-body">
                   <p class="menu-card-season">— SIGNATURE DISH —</p>
@@ -226,6 +226,10 @@
               </div>
       
             </div>
+
+            <div class="menu-note reveal">
+              <p>※お品書きや日本酒のラインナップは、季節や毎日の仕入れ状況により随時変わります。<br class="sp-only">その日だけの特別なお酒や肴との出会いをお楽しみください。</p>
+            </div>
       
             <div class="menu-more-wrap">
               <a href="menu.html" class="btn-menu-more">
@@ -234,73 +238,73 @@
             </div>
           </div>
         `;
-      
-        featuresSection.insertAdjacentElement('afterend', menuSection);
+
+    featuresSection.insertAdjacentElement('afterend', menuSection);
+  }
+
+
+  /* ============================================================
+     3. ナビゲーションに「メニュー」リンクを挿入
+  ============================================================ */
+  const navLinks = document.querySelector('.nav-links');
+  if (navLinks) {
+    let kodawariLi = null;
+    navLinks.querySelectorAll('li').forEach(li => {
+      const a = li.querySelector('a');
+      if (a && a.getAttribute('href') === '#features') kodawariLi = li;
+    });
+
+    const isOnMenuPage = window.location.pathname.includes('menu.html');
+    const menuLi = document.createElement('li');
+    menuLi.innerHTML = `<a href="${isOnMenuPage ? 'index.html#menu' : '#menu'}">メニュー</a>`;
+
+    if (kodawariLi && kodawariLi.nextElementSibling) {
+      kodawariLi.insertAdjacentElement('afterend', menuLi);
+    } else if (navLinks.lastElementChild) {
+      navLinks.insertBefore(menuLi, navLinks.lastElementChild);
     }
-  
-  
-    /* ============================================================
-       3. ナビゲーションに「メニュー」リンクを挿入
-    ============================================================ */
-    const navLinks = document.querySelector('.nav-links');
-    if (navLinks) {
-      let kodawariLi = null;
-      navLinks.querySelectorAll('li').forEach(li => {
-        const a = li.querySelector('a');
-        if (a && a.getAttribute('href') === '#features') kodawariLi = li;
+  }
+
+
+  /* ============================================================
+     4. ハンバーガーメニュー（スライドイン）
+  ============================================================ */
+  const hamburger = document.getElementById('hamburger');
+  const navLinksEl = document.getElementById('navLinks');
+
+  if (hamburger && navLinksEl) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      navLinksEl.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    navLinksEl.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinksEl.classList.remove('open');
+        document.body.style.overflow = '';
       });
-  
-      const isOnMenuPage = window.location.pathname.includes('menu.html');
-      const menuLi = document.createElement('li');
-      menuLi.innerHTML = `<a href="${isOnMenuPage ? 'index.html#menu' : '#menu'}">メニュー</a>`;
-  
-      if (kodawariLi && kodawariLi.nextElementSibling) {
-        kodawariLi.insertAdjacentElement('afterend', menuLi);
-      } else if (navLinks.lastElementChild) {
-        navLinks.insertBefore(menuLi, navLinks.lastElementChild);
-      }
-    }
-  
-  
-    /* ============================================================
-       4. ハンバーガーメニュー（スライドイン）
-    ============================================================ */
-    const hamburger   = document.getElementById('hamburger');
-    const navLinksEl  = document.getElementById('navLinks');
-  
-    if (hamburger && navLinksEl) {
-      hamburger.addEventListener('click', () => {
-        const isOpen = hamburger.classList.toggle('open');
-        navLinksEl.classList.toggle('open', isOpen);
-        hamburger.setAttribute('aria-expanded', String(isOpen));
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-      });
-  
-      navLinksEl.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => {
-          hamburger.classList.remove('open');
-          navLinksEl.classList.remove('open');
-          document.body.style.overflow = '';
-        });
-      });
-    }
-  
-  
-    /* ============================================================
-       5. ギャラリーセクションをフッター直前に挿入 (Index.html のみ)
-    ============================================================ */
-    const footerEl = document.getElementById('footer');
-    if (footerEl && !window.location.pathname.includes('menu.html')) {
-        const galleryItems = [
-          { label: '旬の鮮魚', img: 'img/スクリーンショット 2026-03-18 22.25.05.png' },
-          { label: '厳選日本酒', img: 'img/スクリーンショット 2026-03-18 22.25.14.png' },
-          { label: 'おばんざい', img: 'img/スクリーンショット 2026-03-18 22.25.25.png' },
-          { label: '店内の雰囲気', img: 'img/スクリーンショット 2026-03-18 22.25.36.png' },
-          { label: 'こだわりの一皿', img: 'img/スクリーンショット 2026-03-18 22.25.44.png' },
-          { label: '温かみのある空間', img: 'img/スクリーンショット 2026-03-18 22.25.54.png' },
-        ];
-      
-        const galleryItemsHTML = galleryItems.map(item => `
+    });
+  }
+
+
+  /* ============================================================
+     5. ギャラリーセクションをフッター直前に挿入 (Index.html のみ)
+  ============================================================ */
+  const footerEl = document.getElementById('footer');
+  if (footerEl && !window.location.pathname.includes('menu.html')) {
+    const galleryItems = [
+      { label: '旬の鮮魚', img: 'img/スクリーンショット 2026-03-18 22.25.05.png' },
+      { label: '厳選日本酒', img: 'img/スクリーンショット 2026-03-18 22.25.14.png' },
+      { label: 'おばんざい', img: 'img/スクリーンショット 2026-03-18 22.25.25.png' },
+      { label: '店内の雰囲気', img: 'img/スクリーンショット 2026-03-18 22.25.36.png' },
+      { label: 'こだわりの一皿', img: 'img/スクリーンショット 2026-03-18 22.25.44.png' },
+      { label: '温かみのある空間', img: 'img/スクリーンショット 2026-03-18 22.25.54.png' },
+    ];
+
+    const galleryItemsHTML = galleryItems.map(item => `
           <div class="gallery-item reveal">
             <div class="gallery-item-bg">
               <img src="${item.img}" alt="${item.label}" loading="lazy"
@@ -308,10 +312,10 @@
             </div>
           </div>
         `).join('');
-      
-        const gallerySection = document.createElement('section');
-        gallerySection.id = 'gallery';
-        gallerySection.innerHTML = `
+
+    const gallerySection = document.createElement('section');
+    gallerySection.id = 'gallery';
+    gallerySection.innerHTML = `
           <div class="section-wrap">
             <div class="gallery-header reveal">
               <span class="section-label">— INSTAGRAM —</span>
@@ -349,28 +353,28 @@
             </div>
           </div>
         `;
-      
-        footerEl.insertAdjacentElement('beforebegin', gallerySection);
-    }
-  
-  
-    /* ============================================================
-       6. IntersectionObserver — .reveal アニメーション
-    ============================================================ */
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const siblings = Array.from(
-            entry.target.parentElement.querySelectorAll('.reveal')
-          );
-          const idx = siblings.indexOf(entry.target);
-          entry.target.style.transitionDelay = `${idx * 0.12}s`;
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-  
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  
-  })();
+
+    footerEl.insertAdjacentElement('beforebegin', gallerySection);
+  }
+
+
+  /* ============================================================
+     6. IntersectionObserver — .reveal アニメーション
+  ============================================================ */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const siblings = Array.from(
+          entry.target.parentElement.querySelectorAll('.reveal')
+        );
+        const idx = siblings.indexOf(entry.target);
+        entry.target.style.transitionDelay = `${idx * 0.12}s`;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+})();
